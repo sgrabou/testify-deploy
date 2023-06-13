@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.8.13 on linux)" generated="20230608 20:42:46.726" rpa="false" schemaversion="3">
+<suite id="s1" name="[Project] Demonstration Test Application WEB" source="/var/jenkins_home/jobs/Testify_1/workspace/[Project]_Demonstration Test Application WEB">
+<suite id="s1-s1" name="[TestPlan] Tester cihnet pro" source="/var/jenkins_home/jobs/Testify_1/workspace/[Project]_Demonstration Test Application WEB/[TestPlan]_Tester cihnet pro">
+<suite id="s1-s1-s1" name="[Functionality] Tests d authentification et virement" source="/var/jenkins_home/jobs/Testify_1/workspace/[Project]_Demonstration Test Application WEB/[TestPlan]_Tester cihnet pro/001__[Functionality]_Tests d authentification et virement">
+<suite id="s1-s1-s1-s1" name="[Scenario] Se Connecter et Afficher l historique des virements" source="/var/jenkins_home/jobs/Testify_1/workspace/[Project]_Demonstration Test Application WEB/[TestPlan]_Tester cihnet pro/001__[Functionality]_Tests d authentification et virement/003__[Scenario]_Se Connecter et Afficher l historique des virements.robot">
+<test id="s1-s1-s1-s1-t1" name="Se Connecter et Afficher l historique des virements" line="9">
+<kw name="setup" type="SETUP">
+<kw name="Ouvrir le navigateur Google Chrome">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=https://www.cihnetpro.ma/adriaClient/login/auth</arg>
+<arg>browser=Chrome</arg>
+<arg>alias=Chrome</arg>
+<arg>remote_url=http://selenium-hub:4444/wd/hub</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230608 20:42:49.301" level="INFO">Opening browser 'Chrome' to base url 'https://www.cihnetpro.ma/adriaClient/login/auth' through remote server at 'http://selenium-hub:4444/wd/hub'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230608 20:42:49.302" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20230608 20:42:49.301" endtime="20230608 20:42:49.302"/>
+</kw>
+<msg timestamp="20230608 20:42:49.302" level="FAIL">TypeError: __init__() got an unexpected keyword argument 'browser_profile'</msg>
+<status status="FAIL" starttime="20230608 20:42:49.300" endtime="20230608 20:42:49.305"/>
+</kw>
+<status status="FAIL" starttime="20230608 20:42:49.299" endtime="20230608 20:42:49.305"/>
+</kw>
+<status status="FAIL" starttime="20230608 20:42:49.298" endtime="20230608 20:42:49.305"/>
+</kw>
+<kw name="teardown" type="TEARDOWN">
+<kw name="Fermer le navigateur">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230608 20:42:49.307" endtime="20230608 20:42:49.307"/>
+</kw>
+<status status="PASS" starttime="20230608 20:42:49.306" endtime="20230608 20:42:49.307"/>
+</kw>
+<status status="PASS" starttime="20230608 20:42:49.306" endtime="20230608 20:42:49.307"/>
+</kw>
+<status status="FAIL" starttime="20230608 20:42:49.297" endtime="20230608 20:42:49.307">Setup failed:
+TypeError: __init__() got an unexpected keyword argument 'browser_profile'</status>
+</test>
+<status status="FAIL" starttime="20230608 20:42:49.272" endtime="20230608 20:42:49.308"/>
+</suite>
+<doc>- Vérifier la possibilité de se connecter à l'application avec des identifiants valides.
+
+- Vérifier la gestion des erreurs lors de la saisie d'identifiants incorrects.
+
+- Vérifier la fonctionnalité de récupération du mot de passe.
+
+- Afficher les virements
+
+</doc>
+<status status="FAIL" starttime="20230608 20:42:49.269" endtime="20230608 20:42:49.310"/>
+</suite>
+<status status="FAIL" starttime="20230608 20:42:49.264" endtime="20230608 20:42:49.312"/>
+</suite>
+<doc>user.country=CA</doc>
+<status status="FAIL" starttime="20230608 20:42:46.728" endtime="20230608 20:42:49.313"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="[Project] Demonstration Test Application WEB">[Project] Demonstration Test Application WEB</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="[TestPlan] Tester cihnet pro">[Project] Demonstration Test Application WEB.[TestPlan] Tester cihnet pro</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="[Functionality] Tests d authentification et virement">[Project] Demonstration Test Application WEB.[TestPlan] Tester cihnet pro.[Functionality] Tests d authentification et virement</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="[Scenario] Se Connecter et Afficher l historique des virements">[Project] Demonstration Test Application WEB.[TestPlan] Tester cihnet pro.[Functionality] Tests d authentification et virement.[Scenario] Se Connecter et Afficher l historique des virements</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

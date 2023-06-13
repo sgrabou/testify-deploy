@@ -1,0 +1,18 @@
+# /etc/systemd/system/testify-ct-petclinic.service
+
+[Unit]
+Description=Testify PetClinic Docker Compose
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+WorkingDirectory=/opt/petclinic/
+
+ExecStart=/usr/local/bin/docker-compose -f /opt/petclinic/docker-compose.yml up -d
+ExecStop=/usr/local/bin/docker-compose -f /opt/petclinic/docker-compose.yml stop
+
+[Install]
+WantedBy=multi-user.target

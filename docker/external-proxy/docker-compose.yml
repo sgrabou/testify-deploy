@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+
+  proxy:
+    image: artifactory.testify.ma:6556/ct-external-proxy:${TESTIFY_DOCKER_TAG}
+    environment:
+      TZ: Africa/Casablanca
+    container_name: ct-external-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - external-proxy-config:/etc/nginx/conf.d
+      - external-proxy-cert:/etc/nginx/ssl/cert
+    restart: always
+
+volumes:
+  external-proxy-config:
+    external: true
+  external-proxy-cert:
+    external: true

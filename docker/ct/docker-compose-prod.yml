@@ -1,0 +1,231 @@
+version: '3.7'
+
+services:
+  vault:
+    image: artifactory.testify.ma:6556/ct-vault:${TESTIFY_DOCKER_TAG}
+    environment:
+      TZ: Africa/Casablanca
+      VAULT_ADDR: http://${TESTIFY_VAULT}:8200
+    container_name: ct-vault
+    ports:
+      - "8200:8200"
+    cap_add:
+      - IPC_LOCK
+    logging:
+      options:
+        max-size: '15m'
+        max-file: '1'
+      driver: json-file
+    restart: always
+
+  postgres:
+    image: artifactory.testify.ma:6556/ct-postgres:${TESTIFY_DOCKER_TAG}
+    environment:
+      TZ: Africa/Casablanca
+    container_name: ct-postgres
+    depends_on:
+      - vault
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-database:/var/lib/postgresql/data
+    logging:
+      options:
+        max-size: '15m'
+        max-file: '1'
+      driver: json-file
+    restart: always
+
+  keycloak:
+    image: artifactory.testify.ma:6556/ct-keycloak:${TESTIFY_DOCKER_TAG}
+    environment:
+      TZ: Africa/Casablanca
+      PROXY_ADDRESS_FORWARDING: "true"
+    container_name: ct-keycloak
+    depends_on:
+      - vault
+    ports:
+      - "8280:8280"
+    volumes:
+      - keycloak-database:/keycloak/standalone/data
+    logging:
+      options:
+        max-size: '15m'
+        max-file: '1'
+      driver: json-file
+    restart: always
+
+  jenkins:
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+    image: artifactory.testify.ma:6556/ct-jenkins:${TESTIFY_DOCKER_TAG}
+    environment:
+      TZ: Africa/Casablanca
+      CLASSPATH: "/testify/jdbc-drivers/ojdbc8-18.3.0.0.jar:/testify/jdbc-drivers/db2jcc-db2jcc4.jar:/testify/jdbc-drivers/mssql-jdbc-7.0.0.jre8.jar:/testify/jdbc-drivers/mysql-connector-java-8.0.14.jar:/testify/jdbc-drivers/ngdbc-2.7.9.jar"
+      TESTIFY_BASE_URL: "http://${TESTIFY_SPRINGBOOT}"
+      TESTIFY_BASE_API_PATH: "/testify/api"
+      TESTIFY_BASE_API_URL: "http://${TESTIFY_SPRINGBOOT}:8081/testify/api"
+      TESTIFY_AUTH_API_URL: "http://${TESTIFY_KEYCLOAK}:8280/auth/realms/testify/protocol/openid-connect/token"
+      TESTIFY_KEYCLOAK_BASE_URL: "http://${TESTIFY_KEYCLOAK}:8280"
+      TESTIFY_KEYCLOAK_CLIENT_ID: "jenkins"
+      TESTIFY_KEYCLOAK_SECRET: "0996d458-85f4-4087-82b1-c6725222eb00"
+      TESTIFY_CLIENT_ID: "testify-service"
+      TESTIFY_SECRET: "e44ac5b4-6b04-46b6-9fae-23d888ed347b"
+    container_name: ct-jenkins
+    depends_on:
+      - keycloak
+    ports:
+      - "7070:7070"
+    volumes:
+      - testify-libdoc:/opt/testify/libdoc
+      - jenkins-robot-extra-libraries-installation-data:/opt/testify/libraries
+      - testify-file-server:${FILE_SERVER}
+      - springboot-testify-extra-librarie-properties-file:/testify/conf/
+      - jenkins-config:/usr/share/jenkins/ref
+    logging:
+      options:
+        max-size: '15m'
+        max-file: '1'
+      driver: json-file
+    restart: always
+
+  springboot:
+    image: artifactory.testify.ma:6556/ct-springboot:${TESTIFY_DOCKER_TAG}
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      keycloak_auth_server_url: http://${TESTIFY_KEYCLOAK}:8280/auth
+      appconfig_jenkinsUrl: http://${TESTIFY_JENKINS}:7070/jenkins
+      database_server: ${TESTIFY_DATABASE}
+      appconfig_initializeTenantDatabase: ${INITIALIZE_TENANT_DATABASE}
+      appconfig_initializeDefaultDatabase: ${INITIALIZE_DEFAULT_DATABASE}
+      sshconfig_host: ${TESTIFY_JENKINS}
+      TZ: Africa/Casablanca
+      spring_cloud_vault_host: ${TESTIFY_VAULT}
+    container_name: ct-springboot
+    ports:
+      - "8081:8081"
+    volumes:
+      - testify-libdoc:/opt/testify/libdoc
+      - testify-file-server:${FILE_SERVER}
+      - springboot-testify-extra-librarie-properties-file:/testify/conf/
+      - testify-licenses:/testify/license
+    depends_on:
+      - vault
+      - postgres
+      - keycloak
+      - jenkins
+    logging:
+      options:
+        max-size: '30m'
+        max-file: '1'
+      driver: json-file
+    restart: always
+
+  nginx:
+    image: artifactory.testify.ma:6556/ct-internal-proxy:${TESTIFY_DOCKER_TAG}
+    environment:
+      TZ: Africa/Casablanca
+    container_name: ct-internal-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - internal-proxy-cert:/etc/nginx/ssl/cert
+    depends_on:
+      - vault
+      - postgres
+      - keycloak
+      - jenkins
+      - springboot
+    restart: always
+
+  selenium-hub:
+    image: selenium/hub
+    container_name: selenium-hub
+    environment:
+      - GRID_BROWSER_TIMEOUT=120
+      - GRID_TIMEOUT=360
+      - GRID_MAX_SESSION=${SELENIUM_GRID_MAX_SESSION}
+      - JAVA_OPTS=-Dwebdriver.chrome.whitelistedIps=
+    ports:
+      - "127.0.0.1:4444:4444"
+    restart: always
+
+  chrome:
+    image: selenium/node-chrome
+    container_name: node-chrome
+    volumes:
+      - /dev/shm:/dev/shm
+    entrypoint: >
+      bash -c '
+        SE_OPTS="-timeout 360 -browserTimeout 120" /opt/bin/entry_point.sh'
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=${CHROME_MAX_INSTANCES}
+      - NODE_MAX_SESSION=${CHROME_MAX_SESSION}
+      - JAVA_OPTS=-Dwebdriver.chrome.whitelistedIps=
+    restart: always
+
+  firefox:
+    image: selenium/node-firefox
+    container_name: node-firefox
+    volumes:
+      - /dev/shm:/dev/shm
+    entrypoint: >
+      bash -c '
+        SE_OPTS="-timeout 360 -browserTimeout 120" /opt/bin/entry_point.sh'
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=${FIREFOX_MAX_INSTANCES}
+      - NODE_MAX_SESSION=${FIREFOX_MAX_SESSION}
+      - JAVA_OPTS=-Dwebdriver.chrome.whitelistedIps=
+    restart: always
+
+  opera:
+    image: selenium/node-opera
+    container_name: node-opera
+    volumes:
+      - /dev/shm:/dev/shm
+    entrypoint: >
+      bash -c '
+        sudo sed -i s/operablink/opera/g /opt/bin/generate_config &&
+        SE_OPTS="-timeout 360 -browserTimeout 120" /opt/bin/entry_point.sh'
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=${OPERA_MAX_INSTANCES}
+      - NODE_MAX_SESSION=${OPERA_MAX_SESSION}
+      - JAVA_OPTS=-Dwebdriver.chrome.whitelistedIps=
+    restart: always
+
+volumes:
+  testify-libdoc:
+    external: true
+  postgres-database:
+    external: true
+  keycloak-database:
+    external: true
+  testify-file-server:
+    external: true
+  springboot-testify-extra-librarie-properties-file:
+    external: true
+  jenkins-robot-extra-libraries-installation-data:
+    external: true
+  testify-licenses:
+    external: true
+  internal-proxy-cert:
+    external: true
+  jenkins-config:
+    external: true
+
+networks:
+  default:
+    name: ct-network

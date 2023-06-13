@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.8.13 on linux)" generated="20230609 22:58:21.396" rpa="false" schemaversion="3">
+<suite id="s1" name="[Project] Facebook" source="/var/jenkins_home/jobs/Testify_4/workspace/[Project]_Facebook">
+<suite id="s1-s1" name="[TestPlan] login" source="/var/jenkins_home/jobs/Testify_4/workspace/[Project]_Facebook/[TestPlan]_login">
+<suite id="s1-s1-s1" name="[Functionality] login" source="/var/jenkins_home/jobs/Testify_4/workspace/[Project]_Facebook/[TestPlan]_login/001__[Functionality]_login">
+<suite id="s1-s1-s1-s1" name="[Scenario] login" source="/var/jenkins_home/jobs/Testify_4/workspace/[Project]_Facebook/[TestPlan]_login/001__[Functionality]_login/001__[Scenario]_login.robot">
+<test id="s1-s1-s1-s1-t1" name="login" line="9">
+<kw name="setup" type="SETUP">
+<kw name="Ouvrir chrome">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=https://facebook.com</arg>
+<arg>browser=Chrome</arg>
+<arg>alias=Chrome</arg>
+<arg>remote_url=http://selenium-hub:4444/wd/hub</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230609 22:58:26.630" level="INFO">Opening browser 'Chrome' to base url 'https://facebook.com' through remote server at 'http://selenium-hub:4444/wd/hub'.</msg>
+<status status="PASS" starttime="20230609 22:58:26.629" endtime="20230609 22:58:33.889"/>
+</kw>
+<status status="PASS" starttime="20230609 22:58:26.628" endtime="20230609 22:58:33.890"/>
+</kw>
+<status status="PASS" starttime="20230609 22:58:26.628" endtime="20230609 22:58:33.890"/>
+</kw>
+<kw name="Login">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=email</arg>
+<arg>s.grabou@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 22:58:33.894" level="INFO">Typing text 's.grabou@gmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20230609 22:58:33.891" endtime="20230609 22:58:34.264"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=pass</arg>
+<arg>peridys1500$$</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 22:58:34.266" level="INFO">Typing text 'peridys1500$$' into text field 'id=pass'.</msg>
+<status status="PASS" starttime="20230609 22:58:34.265" endtime="20230609 22:58:34.509"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=u_0_9_Va</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 22:58:34.511" level="INFO">Clicking element 'id=u_0_9_Va'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230609 22:58:34.770" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230609 22:58:34.555" endtime="20230609 22:58:34.770"/>
+</kw>
+<msg timestamp="20230609 22:58:34.771" level="FAIL">Element with locator 'id=u_0_9_Va' not found.</msg>
+<status status="FAIL" starttime="20230609 22:58:34.510" endtime="20230609 22:58:34.776"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230609 22:58:34.776" endtime="20230609 22:58:34.776"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230609 22:58:34.776" endtime="20230609 22:58:34.777"/>
+</kw>
+<status status="FAIL" starttime="20230609 22:58:33.890" endtime="20230609 22:58:34.777"/>
+</kw>
+<kw name="logout">
+<status status="NOT RUN" starttime="20230609 22:58:34.777" endtime="20230609 22:58:34.777"/>
+</kw>
+<status status="FAIL" starttime="20230609 22:58:26.626" endtime="20230609 22:58:34.778">Element with locator 'id=u_0_9_Va' not found.</status>
+</test>
+<status status="FAIL" starttime="20230609 22:58:26.598" endtime="20230609 22:58:34.779"/>
+</suite>
+<status status="FAIL" starttime="20230609 22:58:26.595" endtime="20230609 22:58:34.781"/>
+</suite>
+<status status="FAIL" starttime="20230609 22:58:26.590" endtime="20230609 22:58:34.783"/>
+</suite>
+<doc>user.country=CA</doc>
+<status status="FAIL" starttime="20230609 22:58:21.399" endtime="20230609 22:58:34.784"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="[Project] Facebook">[Project] Facebook</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="[TestPlan] login">[Project] Facebook.[TestPlan] login</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="[Functionality] login">[Project] Facebook.[TestPlan] login.[Functionality] login</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="[Scenario] login">[Project] Facebook.[TestPlan] login.[Functionality] login.[Scenario] login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

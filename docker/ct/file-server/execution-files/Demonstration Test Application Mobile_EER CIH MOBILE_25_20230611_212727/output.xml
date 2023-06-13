@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.8.13 on linux)" generated="20230611 21:27:37.651" rpa="false" schemaversion="3">
+<suite id="s1" name="[Project] Demonstration Test Application Mobile" source="/var/jenkins_home/jobs/Testify_25/workspace/[Project]_Demonstration Test Application Mobile">
+<suite id="s1-s1" name="[TestPlan] Test Application Android" source="/var/jenkins_home/jobs/Testify_25/workspace/[Project]_Demonstration Test Application Mobile/[TestPlan]_Test Application Android">
+<suite id="s1-s1-s1" name="[Functionality] Tester Home page" source="/var/jenkins_home/jobs/Testify_25/workspace/[Project]_Demonstration Test Application Mobile/[TestPlan]_Test Application Android/001__[Functionality]_Tester Home page">
+<suite id="s1-s1-s1-s1" name="[Scenario] EER CIH MOBILE" source="/var/jenkins_home/jobs/Testify_25/workspace/[Project]_Demonstration Test Application Mobile/[TestPlan]_Test Application Android/001__[Functionality]_Tester Home page/004__[Scenario]_EER CIH MOBILE.robot">
+<test id="s1-s1-s1-s1-t1" name="EER CIH MOBILE" line="9">
+<kw name="setup" type="SETUP">
+<kw name="Ouvrir l'application">
+<kw name="Set Variable" library="BuiltIn">
+<var>${app}</var>
+<arg>values= /sdcard/cih-mobile-4-94.apk</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230611 21:27:42.153" level="INFO">${app} = values= /sdcard/cih-mobile-4-94.apk</msg>
+<status status="PASS" starttime="20230611 21:27:42.153" endtime="20230611 21:27:42.153"/>
+</kw>
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://192.168.11.104:4723/</arg>
+<arg>alias=MobileTest</arg>
+<arg>platformName=Android</arg>
+<arg>app=${app}</arg>
+<arg>deviceName=emulator-5554</arg>
+<arg>deviceOrientation=portrait</arg>
+<arg>platformVersion=12.0</arg>
+<arg>automationName=UiAutomator2</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<msg timestamp="20230611 21:29:52.493" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7fa198595640&gt;: Failed to establish a new connection: [Errno 110] Connection timed out')': //session</msg>
+<msg timestamp="20230611 21:32:03.565" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7fa1985954c0&gt;: Failed to establish a new connection: [Errno 110] Connection timed out')': //session</msg>
+<msg timestamp="20230611 21:34:14.637" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7fa198595580&gt;: Failed to establish a new connection: [Errno 110] Connection timed out')': //session</msg>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20230611 21:36:25.711" level="FAIL">No application is open</msg>
+<status status="FAIL" starttime="20230611 21:36:25.710" endtime="20230611 21:36:25.823"/>
+</kw>
+<msg timestamp="20230611 21:36:25.825" level="WARN">Keyword 'AppiumLibrary.Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg timestamp="20230611 21:36:25.826" level="FAIL">MaxRetryError: HTTPConnectionPool(host='192.168.11.104', port=4723): Max retries exceeded with url: //session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7fa198595250&gt;: Failed to establish a new connection: [Errno 110] Connection timed out'))</msg>
+<status status="FAIL" starttime="20230611 21:27:42.154" endtime="20230611 21:36:25.827"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230611 21:36:25.827" endtime="20230611 21:36:25.827"/>
+</kw>
+<status status="FAIL" starttime="20230611 21:27:42.152" endtime="20230611 21:36:25.828"/>
+</kw>
+<status status="FAIL" starttime="20230611 21:27:42.151" endtime="20230611 21:36:25.828"/>
+</kw>
+<kw name="teardown" type="TEARDOWN">
+<kw name="Close App">
+<kw name="Close All Applications" library="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" starttime="20230611 21:36:25.829" endtime="20230611 21:36:25.832"/>
+</kw>
+<status status="PASS" starttime="20230611 21:36:25.829" endtime="20230611 21:36:25.832"/>
+</kw>
+<status status="PASS" starttime="20230611 21:36:25.828" endtime="20230611 21:36:25.832"/>
+</kw>
+<status status="FAIL" starttime="20230611 21:27:42.147" endtime="20230611 21:36:25.832">Setup failed:
+MaxRetryError: HTTPConnectionPool(host='192.168.11.104', port=4723): Max retries exceeded with url: //session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7fa198595250&gt;: Failed to establish a new connection: [Errno 110] Connection timed out'))</status>
+</test>
+<status status="FAIL" starttime="20230611 21:27:42.110" endtime="20230611 21:36:25.834"/>
+</suite>
+<status status="FAIL" starttime="20230611 21:27:42.108" endtime="20230611 21:36:25.837"/>
+</suite>
+<status status="FAIL" starttime="20230611 21:27:42.103" endtime="20230611 21:36:25.839"/>
+</suite>
+<doc>user.country=CA</doc>
+<status status="FAIL" starttime="20230611 21:27:37.653" endtime="20230611 21:36:25.840"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="[Project] Demonstration Test Application Mobile">[Project] Demonstration Test Application Mobile</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="[TestPlan] Test Application Android">[Project] Demonstration Test Application Mobile.[TestPlan] Test Application Android</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="[Functionality] Tester Home page">[Project] Demonstration Test Application Mobile.[TestPlan] Test Application Android.[Functionality] Tester Home page</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="[Scenario] EER CIH MOBILE">[Project] Demonstration Test Application Mobile.[TestPlan] Test Application Android.[Functionality] Tester Home page.[Scenario] EER CIH MOBILE</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230611 21:29:52.493" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7fa198595640&gt;: Failed to establish a new connection: [Errno 110] Connection timed out')': //session</msg>
+<msg timestamp="20230611 21:32:03.565" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7fa1985954c0&gt;: Failed to establish a new connection: [Errno 110] Connection timed out')': //session</msg>
+<msg timestamp="20230611 21:34:14.637" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7fa198595580&gt;: Failed to establish a new connection: [Errno 110] Connection timed out')': //session</msg>
+<msg timestamp="20230611 21:36:25.825" level="WARN">Keyword 'AppiumLibrary.Capture Page Screenshot' could not be run on failure: No application is open</msg>
+</errors>
+</robot>

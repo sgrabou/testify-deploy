@@ -1,0 +1,18 @@
+# /etc/systemd/system/testify-ct.service
+
+[Unit]
+Description=Testify Docker Compose
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+WorkingDirectory=/opt/testify/docker/ct/
+
+ExecStart=/usr/local/bin/docker-compose -f /opt/testify/docker/ct/docker-compose-prod.yml up -d
+ExecStop=/usr/local/bin/docker-compose -f /opt/testify/docker/ct/docker-compose-prod.yml stop
+
+[Install]
+WantedBy=multi-user.target

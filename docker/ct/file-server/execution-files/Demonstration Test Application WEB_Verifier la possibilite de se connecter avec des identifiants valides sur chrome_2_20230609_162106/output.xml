@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.8.13 on linux)" generated="20230609 16:21:21.031" rpa="false" schemaversion="3">
+<suite id="s1" name="[Project] Demonstration Test Application WEB" source="/var/jenkins_home/jobs/Testify_2/workspace/[Project]_Demonstration Test Application WEB">
+<suite id="s1-s1" name="[TestPlan] Tester cihnet pro" source="/var/jenkins_home/jobs/Testify_2/workspace/[Project]_Demonstration Test Application WEB/[TestPlan]_Tester cihnet pro">
+<suite id="s1-s1-s1" name="[Functionality] Tests d authentification et virement" source="/var/jenkins_home/jobs/Testify_2/workspace/[Project]_Demonstration Test Application WEB/[TestPlan]_Tester cihnet pro/001__[Functionality]_Tests d authentification et virement">
+<suite id="s1-s1-s1-s1" name="[Scenario] Verifier la possibilite de se connecter avec des identifiants valides sur chrome" source="/var/jenkins_home/jobs/Testify_2/workspace/[Project]_Demonstration Test Application WEB/[TestPlan]_Tester cihnet pro/001__[Functionality]_Tests d authentification et virement/001__[Scenario]_Verifier la possibilite de se connecter avec des identifiants valides sur chrome.robot">
+<test id="s1-s1-s1-s1-t1" name="Verifier la possibilite de se connecter avec des identifiants valides sur chrome" line="9">
+<kw name="setup" type="SETUP">
+<kw name="Ouvrir le navigateur Google Chrome">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=https://www.cihnetpro.ma/adriaClient/login/auth</arg>
+<arg>browser=Chrome</arg>
+<arg>alias=Chrome</arg>
+<arg>remote_url=http://selenium-hub:4444/wd/hub</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230609 16:21:24.432" level="INFO">Opening browser 'Chrome' to base url 'https://www.cihnetpro.ma/adriaClient/login/auth' through remote server at 'http://selenium-hub:4444/wd/hub'.</msg>
+<status status="PASS" starttime="20230609 16:21:24.430" endtime="20230609 16:21:36.403"/>
+</kw>
+<status status="PASS" starttime="20230609 16:21:24.429" endtime="20230609 16:21:36.407"/>
+</kw>
+<status status="PASS" starttime="20230609 16:21:24.428" endtime="20230609 16:21:36.407"/>
+</kw>
+<kw name="Saisir le login et le mot de passe">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@id="register_form"]/div[1]/div/input[1]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230609 16:21:36.409" endtime="20230609 16:21:37.322"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230609 16:21:38.385" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230609 16:21:37.323" endtime="20230609 16:21:38.385"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="register_form"]/div[1]/div/input[1]</arg>
+<arg>3558021001</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:38.387" level="INFO">Typing text '3558021001' into text field '//*[@id="register_form"]/div[1]/div/input[1]'.</msg>
+<status status="PASS" starttime="20230609 16:21:38.386" endtime="20230609 16:21:38.762"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="password"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:38.765" level="INFO">Clicking element '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:38.763" endtime="20230609 16:21:39.001"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()="2"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:39.004" level="INFO">Clicking element 'xpath=//button[text()="2"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:39.002" endtime="20230609 16:21:39.194"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()="0"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:39.195" level="INFO">Clicking element 'xpath=//button[text()="0"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:39.194" endtime="20230609 16:21:39.396"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()="1"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:39.397" level="INFO">Clicking element 'xpath=//button[text()="1"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:39.396" endtime="20230609 16:21:39.603"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()="0"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:39.604" level="INFO">Clicking element 'xpath=//button[text()="0"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:39.603" endtime="20230609 16:21:39.761"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()="2"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:39.762" level="INFO">Clicking element 'xpath=//button[text()="2"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:39.761" endtime="20230609 16:21:39.909"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()="0"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:39.910" level="INFO">Clicking element 'xpath=//button[text()="0"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:39.909" endtime="20230609 16:21:40.122"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()="1"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:40.126" level="INFO">Clicking element 'xpath=//button[text()="1"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:40.124" endtime="20230609 16:21:40.275"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[text()="9"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:40.276" level="INFO">Clicking element 'xpath=//button[text()="9"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:40.275" endtime="20230609 16:21:40.435"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="login-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230609 16:21:40.437" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230609 16:21:40.436" endtime="20230609 16:21:47.429"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230609 16:21:52.430" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230609 16:21:47.429" endtime="20230609 16:21:52.431"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230609 16:21:52.639" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230609 16:21:52.431" endtime="20230609 16:21:52.639"/>
+</kw>
+<status status="PASS" starttime="20230609 16:21:36.408" endtime="20230609 16:21:52.640"/>
+</kw>
+<kw name="teardown" type="TEARDOWN">
+<kw name="Fermer le navigateur">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230609 16:21:52.642" endtime="20230609 16:21:52.876"/>
+</kw>
+<status status="PASS" starttime="20230609 16:21:52.641" endtime="20230609 16:21:52.876"/>
+</kw>
+<status status="PASS" starttime="20230609 16:21:52.640" endtime="20230609 16:21:52.877"/>
+</kw>
+<status status="PASS" starttime="20230609 16:21:24.425" endtime="20230609 16:21:52.877"/>
+</test>
+<status status="PASS" starttime="20230609 16:21:24.392" endtime="20230609 16:21:52.878"/>
+</suite>
+<doc>- Vérifier la possibilité de se connecter à l'application avec des identifiants valides.
+
+- Vérifier la gestion des erreurs lors de la saisie d'identifiants incorrects.
+
+- Vérifier la fonctionnalité de récupération du mot de passe.
+
+- Afficher les virements
+
+</doc>
+<status status="PASS" starttime="20230609 16:21:24.387" endtime="20230609 16:21:52.880"/>
+</suite>
+<status status="PASS" starttime="20230609 16:21:24.382" endtime="20230609 16:21:52.882"/>
+</suite>
+<doc>user.country=CA</doc>
+<status status="PASS" starttime="20230609 16:21:21.034" endtime="20230609 16:21:52.883"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="[Project] Demonstration Test Application WEB">[Project] Demonstration Test Application WEB</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="[TestPlan] Tester cihnet pro">[Project] Demonstration Test Application WEB.[TestPlan] Tester cihnet pro</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="[Functionality] Tests d authentification et virement">[Project] Demonstration Test Application WEB.[TestPlan] Tester cihnet pro.[Functionality] Tests d authentification et virement</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="[Scenario] Verifier la possibilite de se connecter avec des identifiants valides sur chrome">[Project] Demonstration Test Application WEB.[TestPlan] Tester cihnet pro.[Functionality] Tests d authentification et virement.[Scenario] Verifier la possibilite de se connecter avec des identifiants valides sur chrome</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

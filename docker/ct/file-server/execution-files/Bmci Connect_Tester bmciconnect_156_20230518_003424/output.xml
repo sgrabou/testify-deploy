@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.8.13 on linux)" generated="20230518 00:34:35.339"
+  rpa="false" schemaversion="3">
+  <suite id="s1" name="[Project] Bmci Connect"
+    source="/var/jenkins_home/jobs/Testify_156/workspace/[Project]_Bmci Connect">
+    <suite id="s1-s1" name="[TestPlan] Tester bmciconnect"
+      source="/var/jenkins_home/jobs/Testify_156/workspace/[Project]_Bmci Connect/[TestPlan]_Tester bmciconnect">
+      <suite id="s1-s1-s1" name="[Functionality] Onboarding and login"
+        source="/var/jenkins_home/jobs/Testify_156/workspace/[Project]_Bmci Connect/[TestPlan]_Tester bmciconnect/001__[Functionality]_Onboarding and login">
+        <suite id="s1-s1-s1-s1" name="[Scenario] Tester sur Google Chrome"
+          source="/var/jenkins_home/jobs/Testify_156/workspace/[Project]_Bmci Connect/[TestPlan]_Tester bmciconnect/001__[Functionality]_Onboarding and login/001__[Scenario]_Tester sur Google Chrome.robot">
+          <test id="s1-s1-s1-s1-t1" name="Tester sur Google Chrome" line="9">
+            <kw name="setup" type="SETUP">
+              <kw name="Ouvrir Google Chrome">
+                <kw name="Open Browser" library="SeleniumLibrary">
+                  <arg>url=https://mbank-per.staging.bnpparibas.ma/</arg>
+                  <arg>browser=Chrome</arg>
+                  <arg>alias=Chrome</arg>
+                  <arg>remote_url=http://173.249.49.116:4444/wd/hub</arg>
+                  <doc>Opens a new browser instance to the optional ``url``.</doc>
+                  <msg timestamp="20230518 00:34:39.735" level="INFO">Opening browser 'Chrome' to
+                    base url 'https://mbank-per.staging.bnpparibas.ma/' through remote server at
+                    'http://173.249.49.116:4444/wd/hub'.
+                  </msg>
+                  <kw name="Capture Page Screenshot" library="SeleniumLibrary">
+                    <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+                    <msg timestamp="20230518 00:35:00.355" level="INFO">Cannot capture screenshot
+                      because no browser is open.
+                    </msg>
+                    <status status="PASS" starttime="20230518 00:35:00.352"
+                      endtime="20230518 00:35:00.356"/>
+                  </kw>
+                  <msg timestamp="20230518 00:35:00.359" level="FAIL">WebDriverException: Message:
+                    Timed out waiting for driver server to start.
+                    Build info: version: '3.141.59', revision: 'e82be7d358', time:
+                    '2018-11-14T08:25:53'
+                    System info: host: 'vmi1286552.contaboserver.net', ip: '127.0.1.1', os.name:
+                    'Linux', os.arch: 'amd64', os.version: '5.4.0-105-generic', java.version:
+                    '11.0.18'
+                    Driver info: driver.version: unknown
+                    Stacktrace:
+                    at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable
+                    (DriverService.java:202)
+                    at org.openqa.selenium.remote.service.DriverService.start
+                    (DriverService.java:188)
+                    at org.openqa.selenium.grid.session.remote.ServicedSession$Factory.apply
+                    (ServicedSession.java:155)
+                    at org.openqa.selenium.remote.server.ActiveSessionFactory.lambda$apply$12
+                    (ActiveSessionFactory.java:180)
+                    at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:195)
+                    at java.util.stream.ReferencePipeline$11$1.accept (ReferencePipeline.java:442)
+                    at java.util.stream.ReferencePipeline$2$1.accept (ReferencePipeline.java:177)
+                    at java.util.Spliterators$ArraySpliterator.tryAdvance (Spliterators.java:958)
+                    at java.util.stream.ReferencePipeline.forEachWithCancel
+                    (ReferencePipeline.java:127)
+                    at java.util.stream.AbstractPipeline.copyIntoWithCancel
+                    (AbstractPipeline.java:502)
+                    at java.util.stream.AbstractPipeline.copyInto (AbstractPipeline.java:488)
+                    at java.util.stream.AbstractPipeline.wrapAndCopyInto (AbstractPipeline.java:474)
+                    at java.util.stream.FindOps$FindOp.evaluateSequential (FindOps.java:150)
+                    at java.util.stream.AbstractPipeline.evaluate (AbstractPipeline.java:234)
+                    at java.util.stream.ReferencePipeline.findFirst (ReferencePipeline.java:543)
+                    at org.openqa.selenium.remote.server.ActiveSessionFactory.apply
+                    (ActiveSessionFactory.java:183)
+                    at org.openqa.selenium.remote.server.NewSessionPipeline.lambda$null$2
+                    (NewSessionPipeline.java:66)
+                    at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:195)
+                    at java.util.stream.ReferencePipeline$2$1.accept (ReferencePipeline.java:177)
+                    at java.util.Collections$2.tryAdvance (Collections.java:4747)
+                    at java.util.stream.ReferencePipeline.forEachWithCancel
+                    (ReferencePipeline.java:127)
+                    at java.util.stream.AbstractPipeline.copyIntoWithCancel
+                    (AbstractPipeline.java:502)
+                    at java.util.stream.AbstractPipeline.copyInto (AbstractPipeline.java:488)
+                    at java.util.stream.AbstractPipeline.wrapAndCopyInto (AbstractPipeline.java:474)
+                    at java.util.stream.FindOps$FindOp.evaluateSequential (FindOps.java:150)
+                    at java.util.stream.AbstractPipeline.evaluate (AbstractPipeline.java:234)
+                    at java.util.stream.ReferencePipeline.findFirst (ReferencePipeline.java:543)
+                    at
+                    org.openqa.selenium.remote.server.NewSessionPipeline.lambda$createNewSession$3
+                    (NewSessionPipeline.java:69)
+                    at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:195)
+                    at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:195)
+                    at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:195)
+                    at java.util.stream.DistinctOps$1$2.accept (DistinctOps.java:175)
+                    at java.util.stream.ReferencePipeline$2$1.accept (ReferencePipeline.java:177)
+                    at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:195)
+                    at java.util.stream.ReferencePipeline$2$1.accept (ReferencePipeline.java:177)
+                    at java.util.stream.Streams$StreamBuilderImpl.tryAdvance (Streams.java:397)
+                    at java.util.stream.Streams$ConcatSpliterator.tryAdvance (Streams.java:720)
+                    at java.util.stream.ReferencePipeline.forEachWithCancel
+                    (ReferencePipeline.java:127)
+                    at java.util.stream.AbstractPipeline.copyIntoWithCancel
+                    (AbstractPipeline.java:502)
+                    at java.util.stream.AbstractPipeline.copyInto (AbstractPipeline.java:488)
+                    at java.util.stream.AbstractPipeline.wrapAndCopyInto (AbstractPipeline.java:474)
+                    at java.util.stream.FindOps$FindOp.evaluateSequential (FindOps.java:150)
+                    at java.util.stream.AbstractPipeline.evaluate (AbstractPipeline.java:234)
+                    at java.util.stream.ReferencePipeline.findFirst (ReferencePipeline.java:543)
+                    at org.openqa.selenium.remote.server.NewSessionPipeline.createNewSession
+                    (NewSessionPipeline.java:72)
+                    at org.openqa.selenium.remote.server.commandhandler.BeginSession.execute
+                    (BeginSession.java:65)
+                    at org.openqa.selenium.remote.server.WebDriverServlet.lambda$handle$0
+                    (WebDriverServlet.java:235)
+                    at java.util.concurrent.Executors$RunnableAdapter.call (Executors.java:515)
+                    at java.util.concurrent.FutureTask.run (FutureTask.java:264)
+                    at java.util.concurrent.ThreadPoolExecutor.runWorker
+                    (ThreadPoolExecutor.java:1128)
+                    at java.util.concurrent.ThreadPoolExecutor$Worker.run
+                    (ThreadPoolExecutor.java:628)
+                    at java.lang.Thread.run (Thread.java:829)
+                  </msg>
+                  <status status="FAIL" starttime="20230518 00:34:39.731"
+                    endtime="20230518 00:35:00.375"/>
+                </kw>
+                <status status="FAIL" starttime="20230518 00:34:39.729"
+                  endtime="20230518 00:35:00.377"/>
+              </kw>
+              <status status="FAIL" starttime="20230518 00:34:39.727"
+                endtime="20230518 00:35:00.379"/>
+            </kw>
+            <kw name="teardown" type="TEARDOWN">
+              <kw name="Femer les navigateurs">
+                <kw name="Close All Browsers" library="SeleniumLibrary">
+                  <doc>Closes all open browsers and resets the browser cache.</doc>
+                  <status status="PASS" starttime="20230518 00:35:00.386"
+                    endtime="20230518 00:35:00.387"/>
+                </kw>
+                <status status="PASS" starttime="20230518 00:35:00.384"
+                  endtime="20230518 00:35:00.388"/>
+              </kw>
+              <status status="PASS" starttime="20230518 00:35:00.381"
+                endtime="20230518 00:35:00.389"/>
+            </kw>
+            <status status="FAIL" starttime="20230518 00:34:39.724" endtime="20230518 00:35:00.390">
+              Setup failed:
+              WebDriverException: Message: Timed out waiting for driver server to start.
+              Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+              System info: host: 'vmi1286552.contaboserver.net', ip: '127.0.1.1', os.name: 'Linux',
+              os.arch: 'amd64', os.version: '5.4.0-105-generic', java.version: '11.0.18'
+              Driver info: driver.version: unknown
+              Stacktrace:
+              at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable
+              (DriverService.java:202)
+              at org.openqa.selenium.remote.service.DriverService.start (DriverService.java:188)
+              at org.openqa.selenium.grid.session.remote.ServicedSession$Factory.apply
+              (ServicedSession.java:155)
+              at org.openqa.selenium.remote.server.ActiveSessionFactory.lambda$apply$12
+              (ActiveSessionFactory.java:180)
+              at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:195)
+              at java.util.stream.ReferencePipeline$11$1.accept (ReferencePipeline.java:442)
+              [ Message content over the limit has been removed. ]
+              at java.util.stream.AbstractPipeline.wrapAndCopyInto (AbstractPipeline.java:474)
+              at java.util.stream.FindOps$FindOp.evaluateSequential (FindOps.java:150)
+              at java.util.stream.AbstractPipeline.evaluate (AbstractPipeline.java:234)
+              at java.util.stream.ReferencePipeline.findFirst (ReferencePipeline.java:543)
+              at org.openqa.selenium.remote.server.NewSessionPipeline.createNewSession
+              (NewSessionPipeline.java:72)
+              at org.openqa.selenium.remote.server.commandhandler.BeginSession.execute
+              (BeginSession.java:65)
+              at org.openqa.selenium.remote.server.WebDriverServlet.lambda$handle$0
+              (WebDriverServlet.java:235)
+              at java.util.concurrent.Executors$RunnableAdapter.call (Executors.java:515)
+              at java.util.concurrent.FutureTask.run (FutureTask.java:264)
+              at java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1128)
+              at java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:628)
+              at java.lang.Thread.run (Thread.java:829)
+            </status>
+          </test>
+          <status status="FAIL" starttime="20230518 00:34:39.671" endtime="20230518 00:35:00.396"/>
+        </suite>
+        <doc>1- Ouvrir un navigateur sur google Chrome, Firefox, Opera, Safari
+
+          2- Tapper https://mbank-per.staging.bnpparibas.ma/
+
+          3- Passer la visite guidé , vérifier le wording et prendre des capture d'écran
+
+          4- Afficher la page login
+
+          5- Se connecter avec un mot de passe permanent
+
+          6 - Afficher le dashboard
+
+          7 - Prendre un capture d'écran
+
+          8 - Quitter le navigateur
+        </doc>
+        <status status="FAIL" starttime="20230518 00:34:39.663" endtime="20230518 00:35:00.404"/>
+      </suite>
+      <status status="FAIL" starttime="20230518 00:34:39.656" endtime="20230518 00:35:00.410"/>
+    </suite>
+    <doc>user.country=CA</doc>
+    <status status="FAIL" starttime="20230518 00:34:35.344" endtime="20230518 00:35:00.414"/>
+  </suite>
+  <statistics>
+    <total>
+      <stat pass="0" fail="1" skip="0">All Tests</stat>
+    </total>
+    <tag>
+    </tag>
+    <suite>
+      <stat pass="0" fail="1" skip="0" id="s1" name="[Project] Bmci Connect">[Project] Bmci
+        Connect
+      </stat>
+      <stat pass="0" fail="1" skip="0" id="s1-s1" name="[TestPlan] Tester bmciconnect">[Project]
+        Bmci Connect.[TestPlan] Tester bmciconnect
+      </stat>
+      <stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="[Functionality] Onboarding and login">
+        [Project] Bmci Connect.[TestPlan] Tester bmciconnect.[Functionality] Onboarding and login
+      </stat>
+      <stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="[Scenario] Tester sur Google Chrome">
+        [Project] Bmci Connect.[TestPlan] Tester bmciconnect.[Functionality] Onboarding and
+        login.[Scenario] Tester sur Google Chrome
+      </stat>
+    </suite>
+  </statistics>
+  <errors>
+  </errors>
+</robot>

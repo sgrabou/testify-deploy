@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.8.13 on linux)" generated="20230507 04:07:32.806"
+  rpa="false" schemaversion="3">
+  <suite id="s1" name="[Project] project name"
+    source="/var/jenkins_home/jobs/Testify_148/workspace/[Project]_project name">
+    <suite id="s1-s1" name="[TestPlan] test plan 1"
+      source="/var/jenkins_home/jobs/Testify_148/workspace/[Project]_project name/[TestPlan]_test plan 1">
+      <suite id="s1-s1-s1" name="[Functionality] f1"
+        source="/var/jenkins_home/jobs/Testify_148/workspace/[Project]_project name/[TestPlan]_test plan 1/001__[Functionality]_f1">
+        <suite id="s1-s1-s1-s1" name="[Scenario] s1"
+          source="/var/jenkins_home/jobs/Testify_148/workspace/[Project]_project name/[TestPlan]_test plan 1/001__[Functionality]_f1/001__[Scenario]_s1.robot">
+          <test id="s1-s1-s1-s1-t1" name="s1" line="9">
+            <kw name="setup" type="SETUP">
+              <kw name="Open chrome">
+                <kw name="Open Browser" library="SeleniumLibrary">
+                  <arg>url=https://google.com</arg>
+                  <arg>browser=Chrome</arg>
+                  <arg>alias=Chrome</arg>
+                  <arg>remote_url=http://173.249.49.116:4444/wd/hub</arg>
+                  <doc>Opens a new browser instance to the optional ``url``.</doc>
+                  <msg timestamp="20230507 04:07:36.637" level="INFO">Opening browser 'Chrome' to
+                    base url 'https://google.com' through remote server at
+                    'http://173.249.49.116:4444/wd/hub'.
+                  </msg>
+                  <status status="PASS" starttime="20230507 04:07:36.633"
+                    endtime="20230507 04:07:38.048"/>
+                </kw>
+                <status status="PASS" starttime="20230507 04:07:36.632"
+                  endtime="20230507 04:07:38.051"/>
+              </kw>
+              <status status="PASS" starttime="20230507 04:07:36.631"
+                endtime="20230507 04:07:38.053"/>
+            </kw>
+            <kw name="screen shot">
+              <kw name="Capture Page Screenshot" library="SeleniumLibrary">
+                <arg>filename=google.png</arg>
+                <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+                <msg timestamp="20230507 04:07:38.505" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td
+                  colspan="3"&gt;&lt;a href="google.png"&gt;&lt;img src="google.png" width="800px"&gt;&lt;/a&gt;
+                </msg>
+                <status status="PASS" starttime="20230507 04:07:38.061"
+                  endtime="20230507 04:07:38.506"/>
+              </kw>
+              <status status="PASS" starttime="20230507 04:07:38.055"
+                endtime="20230507 04:07:38.508"/>
+            </kw>
+            <kw name="close browser">
+              <kw name="Close All Browsers" library="SeleniumLibrary">
+                <doc>Closes all open browsers and resets the browser cache.</doc>
+                <status status="PASS" starttime="20230507 04:07:38.512"
+                  endtime="20230507 04:07:38.660"/>
+              </kw>
+              <status status="PASS" starttime="20230507 04:07:38.509"
+                endtime="20230507 04:07:38.661"/>
+            </kw>
+            <status status="PASS" starttime="20230507 04:07:36.628"
+              endtime="20230507 04:07:38.662"/>
+          </test>
+          <status status="PASS" starttime="20230507 04:07:36.575" endtime="20230507 04:07:38.669"/>
+        </suite>
+        <status status="PASS" starttime="20230507 04:07:36.569" endtime="20230507 04:07:38.678"/>
+      </suite>
+      <status status="PASS" starttime="20230507 04:07:36.562" endtime="20230507 04:07:38.685"/>
+    </suite>
+    <doc>user.country=CA</doc>
+    <status status="PASS" starttime="20230507 04:07:32.810" endtime="20230507 04:07:38.691"/>
+  </suite>
+  <statistics>
+    <total>
+      <stat pass="1" fail="0" skip="0">All Tests</stat>
+    </total>
+    <tag>
+    </tag>
+    <suite>
+      <stat pass="1" fail="0" skip="0" id="s1" name="[Project] project name">[Project] project
+        name
+      </stat>
+      <stat pass="1" fail="0" skip="0" id="s1-s1" name="[TestPlan] test plan 1">[Project] project
+        name.[TestPlan] test plan 1
+      </stat>
+      <stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="[Functionality] f1">[Project] project
+        name.[TestPlan] test plan 1.[Functionality] f1
+      </stat>
+      <stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="[Scenario] s1">[Project] project
+        name.[TestPlan] test plan 1.[Functionality] f1.[Scenario] s1
+      </stat>
+    </suite>
+  </statistics>
+  <errors>
+  </errors>
+</robot>

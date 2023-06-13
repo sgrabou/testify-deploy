@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.8.13 on linux)" generated="20230611 23:13:24.467" rpa="false" schemaversion="3">
+<suite id="s1" name="[Project] SauceLabdemo" source="/var/jenkins_home/jobs/Testify_29/workspace/[Project]_SauceLabdemo">
+<suite id="s1-s1" name="[TestPlan] Tester login ajout produit checkout et logout" source="/var/jenkins_home/jobs/Testify_29/workspace/[Project]_SauceLabdemo/[TestPlan]_Tester login ajout produit checkout et logout">
+<suite id="s1-s1-s1" name="[Functionality] parcours complet" source="/var/jenkins_home/jobs/Testify_29/workspace/[Project]_SauceLabdemo/[TestPlan]_Tester login ajout produit checkout et logout/001__[Functionality]_parcours complet">
+<suite id="s1-s1-s1-s1" name="[Scenario] Login et mot de passe correcte" source="/var/jenkins_home/jobs/Testify_29/workspace/[Project]_SauceLabdemo/[TestPlan]_Tester login ajout produit checkout et logout/001__[Functionality]_parcours complet/001__[Scenario]_Login et mot de passe correcte.robot">
+<test id="s1-s1-s1-s1-t1" name="Login et mot de passe correcte" line="11">
+<kw name="setup" type="SETUP">
+<kw name="Open Browser">
+<doc>Ouverture du navigateur chrome</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=https://www.saucedemo.com/</arg>
+<arg>browser=Chrome</arg>
+<arg>alias=Chrome</arg>
+<arg>remote_url=http://selenium-hub:4444/wd/hub</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230611 23:13:26.416" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/' through remote server at 'http://selenium-hub:4444/wd/hub'.</msg>
+<status status="PASS" starttime="20230611 23:13:26.414" endtime="20230611 23:13:27.760"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1900</arg>
+<arg>1020</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230611 23:13:27.761" endtime="20230611 23:13:27.900"/>
+</kw>
+<status status="PASS" starttime="20230611 23:13:26.413" endtime="20230611 23:13:27.900"/>
+</kw>
+<status status="PASS" starttime="20230611 23:13:26.412" endtime="20230611 23:13:27.901"/>
+</kw>
+<kw name="Saisi formulaire de login">
+<doc>Saisir le nom de compte et mdp et cliquer sur le boutton login</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230611 23:13:28.182" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230611 23:13:27.902" endtime="20230611 23:13:28.182"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=user-name</arg>
+<arg>standard_user</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230611 23:13:28.184" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<status status="PASS" starttime="20230611 23:13:28.183" endtime="20230611 23:13:28.488"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>secret_sauce</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230611 23:13:28.490" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20230611 23:13:28.594" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230611 23:13:28.705" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230611 23:13:28.489" endtime="20230611 23:13:28.705"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230611 23:13:28.706" level="INFO">Clicking element 'id=login-button'.</msg>
+<status status="PASS" starttime="20230611 23:13:28.705" endtime="20230611 23:13:28.935"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<arg>reason=to wait for page</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230611 23:13:31.937" level="INFO">Slept 3 seconds</msg>
+<msg timestamp="20230611 23:13:31.937" level="INFO">to wait for page</msg>
+<status status="PASS" starttime="20230611 23:13:28.936" endtime="20230611 23:13:31.937"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230611 23:13:32.422" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230611 23:13:31.938" endtime="20230611 23:13:32.423"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.bm-burger-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230611 23:13:32.424" level="INFO">Clicking element 'css=.bm-burger-button'.</msg>
+<status status="PASS" starttime="20230611 23:13:32.423" endtime="20230611 23:13:32.545"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=react-burger-menu-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230611 23:13:32.547" level="INFO">Clicking element 'id=react-burger-menu-btn'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230611 23:13:34.095" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230611 23:13:33.702" endtime="20230611 23:13:34.095"/>
+</kw>
+<msg timestamp="20230611 23:13:34.096" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button id="react-burger-menu-btn" style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; height: 100%; margin: 0px; padding: 0px; border: none; font-size: 0px; background: transparent; cursor: pointer;"&gt;...&lt;/button&gt; is not clickable at point (30, 30). Other element would receive the click: &lt;div class="bm-menu" style="height: 100%; box-sizing: border-box; overflow: auto;"&gt;...&lt;/div&gt;
+  (Session info: chrome=113.0.5672.63)
+Stacktrace:
+#0 0x55c4e5ae6133 &lt;unknown&gt;
+#1 0x55c4e581a966 &lt;unknown&gt;
+#2 0x55c4e585d3f2 &lt;unknown&gt;
+#3 0x55c4e585b5ac &lt;unknown&gt;
+#4 0x55c4e58593be &lt;unknown&gt;
+#5 0x55c4e5858696 &lt;unknown&gt;
+#6 0x55c4e584d3ea &lt;unknown&gt;
+#7 0x55c4e5876bd2 &lt;unknown&gt;
+#8 0x55c4e584cd13 &lt;unknown&gt;
+#9 0x55c4e5876d9e &lt;unknown&gt;
+#10 0x55c4e588f1c7 &lt;unknown&gt;
+#11 0x55c4e58769a3 &lt;unknown&gt;
+#12 0x55c4e584b46a &lt;unknown&gt;
+#13 0x55c4e584c55e &lt;unknown&gt;
+#14 0x55c4e5aa5cae &lt;unknown&gt;
+#15 0x55c4e5aa98fe &lt;unknown&gt;
+#16 0x55c4e5ab2f20 &lt;unknown&gt;
+#17 0x55c4e5aaa923 &lt;unknown&gt;
+#18 0x55c4e5a7dc0e &lt;unknown&gt;
+#19 0x55c4e5acdb08 &lt;unknown&gt;
+#20 0x55c4e5acdc97 &lt;unknown&gt;
+#21 0x55c4e5ade113 &lt;unknown&gt;
+#22 0x7f231be6f609 start_thread
+</msg>
+<status status="FAIL" starttime="20230611 23:13:32.546" endtime="20230611 23:13:34.100"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=reset_sidebar_link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.101" endtime="20230611 23:13:34.101"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=add-to-cart-sauce-labs-backpack</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.101" endtime="20230611 23:13:34.101"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=add-to-cart-sauce-labs-bike-light</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.101" endtime="20230611 23:13:34.102"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>linkText=2</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.102" endtime="20230611 23:13:34.102"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<arg>reason=to wait for page</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.102" endtime="20230611 23:13:34.102"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.102" endtime="20230611 23:13:34.102"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=checkout</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.103" endtime="20230611 23:13:34.103"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=first-name</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.103" endtime="20230611 23:13:34.103"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<arg>reason=to wait for page</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.103" endtime="20230611 23:13:34.103"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.104" endtime="20230611 23:13:34.104"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=first-name</arg>
+<arg>Testing</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.104" endtime="20230611 23:13:34.104"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=last-name</arg>
+<arg>Testify</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.104" endtime="20230611 23:13:34.104"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=postal-code</arg>
+<arg>20100</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.105" endtime="20230611 23:13:34.105"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=continue</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.105" endtime="20230611 23:13:34.105"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=finish</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.105" endtime="20230611 23:13:34.105"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=back-to-products</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.105" endtime="20230611 23:13:34.105"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<arg>reason=to wait for page</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.106" endtime="20230611 23:13:34.106"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230611 23:13:34.106" endtime="20230611 23:13:34.106"/>
+</kw>
+<status status="FAIL" starttime="20230611 23:13:27.901" endtime="20230611 23:13:34.106"/>
+</kw>
+<kw name="teardown" type="TEARDOWN">
+<kw name="Close Browser">
+<doc>Fermer tout les navigateurs</doc>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230611 23:13:34.108" endtime="20230611 23:13:34.244"/>
+</kw>
+<status status="PASS" starttime="20230611 23:13:34.108" endtime="20230611 23:13:34.244"/>
+</kw>
+<status status="PASS" starttime="20230611 23:13:34.107" endtime="20230611 23:13:34.244"/>
+</kw>
+<status status="FAIL" starttime="20230611 23:13:26.410" endtime="20230611 23:13:34.244">ElementClickInterceptedException: Message: element click intercepted: Element &lt;button id="react-burger-menu-btn" style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; height: 100%; margin: 0px; padding: 0px; border: none; font-size: 0px; background: transparent; cursor: pointer;"&gt;...&lt;/button&gt; is not clickable at point (30, 30). Other element would receive the click: &lt;div class="bm-menu" style="height: 100%; box-sizing: border-box; overflow: auto;"&gt;...&lt;/div&gt;
+  (Session info: chrome=113.0.5672.63)
+Stacktrace:
+#0 0x55c4e5ae6133 &lt;unknown&gt;
+#1 0x55c4e581a966 &lt;unknown&gt;
+#2 0x55c4e585d3f2 &lt;unknown&gt;
+#3 0x55c4e585b5ac &lt;unknown&gt;
+#4 0x55c4e58593be &lt;unknown&gt;
+#5 0x55c4e5858696 &lt;unknown&gt;
+#6 0x55c4e584d3ea &lt;unknown&gt;
+#7 0x55c4e5876bd2 &lt;unknown&gt;
+#8 0x55c4e584cd13 &lt;unknown&gt;
+#9 0x55c4e5876d9e &lt;unknown&gt;
+#10 0x55c4e588f1c7 &lt;unknown&gt;
+#11 0x55c4e58769a3 &lt;unknown&gt;
+#12 0x55c4e584b46a &lt;unknown&gt;
+#13 0x55c4e584c55e &lt;unknown&gt;
+#14 0x55c4e5aa5cae &lt;unknown&gt;
+#15 0x55c4e5aa98fe &lt;unknown&gt;
+#16 0x55c4e5ab2f20 &lt;unknown&gt;
+#17 0x55c4e5aaa923 &lt;unknown&gt;
+#18 0x55c4e5a7dc0e &lt;unknown&gt;
+#19 0x55c4e5acdb08 &lt;unknown&gt;
+#20 0x55c4e5acdc97 &lt;unknown&gt;
+#21 0x55c4e5ade113 &lt;unknown&gt;
+#22 0x7f231be6f609 start_thread
+</status>
+</test>
+<doc>Login et mot de passe correcte</doc>
+<status status="FAIL" starttime="20230611 23:13:26.372" endtime="20230611 23:13:34.246"/>
+</suite>
+<doc>L'utilisateur doit entrer son login et mdp pour s'authentifier selectionner un produit et confirmer l'achat dans le checkout puis logout</doc>
+<status status="FAIL" starttime="20230611 23:13:26.370" endtime="20230611 23:13:34.249"/>
+</suite>
+<status status="FAIL" starttime="20230611 23:13:26.365" endtime="20230611 23:13:34.250"/>
+</suite>
+<doc>user.country=CA</doc>
+<status status="FAIL" starttime="20230611 23:13:24.470" endtime="20230611 23:13:34.251"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="[Project] SauceLabdemo">[Project] SauceLabdemo</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="[TestPlan] Tester login ajout produit checkout et logout">[Project] SauceLabdemo.[TestPlan] Tester login ajout produit checkout et logout</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="[Functionality] parcours complet">[Project] SauceLabdemo.[TestPlan] Tester login ajout produit checkout et logout.[Functionality] parcours complet</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="[Scenario] Login et mot de passe correcte">[Project] SauceLabdemo.[TestPlan] Tester login ajout produit checkout et logout.[Functionality] parcours complet.[Scenario] Login et mot de passe correcte</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

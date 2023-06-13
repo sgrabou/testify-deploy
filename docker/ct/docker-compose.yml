@@ -1,0 +1,172 @@
+version: '3.7'
+
+services:
+  vault:
+    image: sgrabou/testify:testify-vault
+    environment:
+      TZ: Africa/Casablanca
+      VAULT_ADDR: http://${TESTIFY_VAULT}:8200
+    container_name: ct-vault
+    ports:
+      - "8200:8200"
+    cap_add:
+      - IPC_LOCK
+    logging:
+      options:
+        max-size: '15m'
+        max-file: '1'
+      driver: json-file
+
+  postgres:
+    image: sgrabou/testify:testify-postgres
+    environment:
+      TZ: Africa/Casablanca
+    container_name: ct-postgres
+    depends_on:
+      - vault
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-database:/var/lib/postgresql/data
+    logging:
+      options:
+        max-size: '15m'
+        max-file: '1'
+      driver: json-file
+
+  keycloak:
+    image: sgrabou/testify:testify-keycloak
+    environment:
+      TZ: Africa/Casablanca
+      PROXY_ADDRESS_FORWARDING: "true"
+    container_name: ct-keycloak
+    depends_on:
+      - vault
+    ports:
+      - "8280:8280"
+    volumes:
+      - keycloak-database:/keycloak/standalone/data
+    logging:
+      options:
+        max-size: '15m'
+        max-file: '1'
+      driver: json-file
+
+  jenkins:
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+    image: sgrabou/testify:testify-jenkins
+    environment:
+      TZ: Africa/Casablanca
+      CLASSPATH: "/testify/jdbc-drivers/ojdbc8-18.3.0.0.jar:/testify/jdbc-drivers/db2jcc-db2jcc4.jar:/testify/jdbc-drivers/mssql-jdbc-7.0.0.jre8.jar:/testify/jdbc-drivers/mysql-connector-java-8.0.14.jar:/testify/jdbc-drivers/ngdbc-2.7.9.jar"
+      TESTIFY_BASE_URL: "http://${TESTIFY_SPRINGBOOT_DEV}"
+      TESTIFY_BASE_Acd PI_PATH: "/testify/api"
+      TESTIFY_BASE_API_URL: "http://${TESTIFY_SPRINGBOOT_DEV}:8081/testify/api"
+      TESTIFY_AUTH_API_URL: "http://${TESTIFY_KEYCLOAK}:8280/auth/realms/testify/protocol/openid-connect/token"
+      TESTIFY_KEYCLOAK_BASE_URL: "http://${TESTIFY_KEYCLOAK}:8280"
+      TESTIFY_KEYCLOAK_CLIENT_ID: "jenkins"
+      TESTIFY_KEYCLOAK_SECRET: "0996d458-85f4-4087-82b1-c6725222eb00"
+      TESTIFY_CLIENT_ID: "testify-service"
+      TESTIFY_SECRET: "e44ac5b4-6b04-46b6-9fae-23d888ed347b"
+    container_name: ct-jenkins
+    depends_on:
+      - keycloak
+    ports:
+      - "7070:7070"
+      - "24:24"
+    volumes:
+      - jenkins-robot-extra-libraries-installation-data:/opt/testify/libraries
+      - springboot-testify-extra-librarie-properties-file:/testify/conf/
+      - ./libdoc:/opt/testify/libdoc
+      - ./file-server:${FILE_SERVER}
+    logging:
+      options:
+        max-size: '15m'
+        max-file: '1'
+      driver: json-file
+
+  nginx:
+    image: sgrabou/testify:testify-nginx
+    environment:
+      TZ: Africa/Casablanca
+    container_name: ct-internal-proxy
+    ports:
+      - "80:80"
+    command: /bin/bash -c "sed -i s/ct-springboot/${TESTIFY_SPRINGBOOT_DEV}/g /etc/nginx/conf.d/testify*.* && sed -i s/selenium-hub/127.0.01/g /etc/nginx/conf.d/testify*.* && exec nginx -g 'daemon off;'"
+    depends_on:
+      - vault
+      - postgres
+      - keycloak
+      - jenkins
+  selenium-hub:
+    image: selenium/hub:4.9.1
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+    environment:
+      - GRID_MAX_SESSION=${SELENIUM_GRID_MAX_SESSION}
+      - GRID_BROWSER_TIMEOUT=120
+      - GRID_TIMEOUT=360
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    restart: always
+
+  node-chrome:
+    image: selenium/node-chrome:4.9.1
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - NODE_MAX_INSTANCES=${CHROME_MAX_INSTANCES}
+      - NODE_MAX_SESSION=${CHROME_MAX_SESSION}
+    restart: always
+  springboot:
+    image: sgrabou/testify:testify-springboot
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      keycloak_auth_server_url: http://${TESTIFY_KEYCLOAK}:8280/auth
+      appconfig_jenkinsUrl: http://${TESTIFY_JENKINS}:7070/jenkins
+      database_server: ${TESTIFY_DATABASE}
+      appconfig_initializeTenantDatabase: ${INITIALIZE_TENANT_DATABASE}
+      appconfig_initializeDefaultDatabase: ${INITIALIZE_DEFAULT_DATABASE}
+      sshconfig_host: ${TESTIFY_JENKINS}
+      TZ: Africa/Casablanca
+      spring_cloud_vault_host: ${TESTIFY_VAULT}
+    container_name: ct-springboot
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./libdoc:/opt/testify/libdoc
+      - ./file-server:${FILE_SERVER}
+      - springboot-testify-extra-librarie-properties-file:/testify/conf/
+      - ./licenses:/testify/license
+    depends_on:
+      - vault
+      - postgres
+      - keycloak
+      - jenkins
+    logging:
+      options:
+        max-size: '30m'
+        max-file: '1'
+      driver: json-file
+    restart: always
+volumes:
+  keycloak-database:
+    external: true
+  postgres-database:
+    external: true
+  springboot-testify-extra-librarie-properties-file:
+    external: true
+  jenkins-robot-extra-libraries-installation-data:
+    external: true
+
+networks:
+  default:
+    name: ct-network
